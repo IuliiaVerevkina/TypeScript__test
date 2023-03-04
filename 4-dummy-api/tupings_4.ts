@@ -75,6 +75,7 @@ interface User {
   total: number;
   skip: number;
   limit: number;
+  
 };
 
 
