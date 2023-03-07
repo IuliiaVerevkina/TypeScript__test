@@ -132,7 +132,7 @@ function generateWords(number: number) : number{
   }
 
   words.push(word);
-  return generateWords(remainder, words);
+  return generateWords( words);
 }
 
 module.exports = toWords;
