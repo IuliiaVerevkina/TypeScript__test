@@ -57,19 +57,16 @@ const TENTHS_LESS_THAN_HUNDRED: string[] = [
  */
 function toWords(number: number, asOrdinal: number) : number {
   let words : number;
-  let num : number = Number(number);
 
-  if (!isFinite(num)) {
-    throw new TypeError(
-      `Not a finite number: ${number} (typeof ${number})`
-    );
+  if (!isFinite(number)) {
+    throw new TypeError(`Not a finite number: ${number} (typeof ${number})`);
   }
-  if (!isSafeNumber(num)) {
+  if (!isSafeNumber(number)) {
     throw new RangeError(
       "Input is not a safe number, it’s either too large or too small."
     );
   }
-  words = generateWords(num);
+  words = generateWords(number);
   return asOrdinal ? makeOrdinal(words) : words;
 }
 
@@ -132,7 +129,7 @@ function generateWords(number: number) : number{
   }
 
   words.push(word);
-  return generateWords(remainder, words);
+  return generateWords( words);
 }
 
 module.exports = toWords;

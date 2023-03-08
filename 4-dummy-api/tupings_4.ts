@@ -18,10 +18,7 @@ interface UsersCountInfo {
   total: number;
   skip: number;
   limit: number;
-  users: CompleteInfoUser;
 }
-
-interface CompleteInfoUser extends User, adressCompany{}
 
 interface User {
   id: number;
@@ -35,14 +32,14 @@ interface User {
   username: string;
   password: string;
   birthDate: string;
-  image: string;
-  bloodGroup: string;
-  height: number;
-  weight: number;
-  eyeColor: string;
-  hair: {
-    color: string;
-    type: string;
+  image?: string;
+  bloodGroup?: string;
+  height?: number;
+  weight?: number;
+  eyeColor?: string;
+  hair?: {
+    color?: string;
+    type?: string;
   };
   domain: string;
   ip: string;
@@ -62,12 +59,13 @@ interface User {
   ein: string;
   ssn: string;
   userAgent: string;
+  addressCompany: AdressCompany;
 }
 
-interface adressCompany {
-  addressCompany: string;
+interface AdressCompany {
+  address: string;
   city: string;
-  coordinates: {
+  coordinates?: {
     lat: number;
     lng: number;
   };
